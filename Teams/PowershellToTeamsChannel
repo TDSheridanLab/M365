@@ -1,0 +1,65 @@
+# Sending notifications from powershell syntax.
+# Teams Channel incoming webhooks still use the legacy messagecard 
+# instead of modern adaptive cards
+# Because of the popularity of Adaptive cards its difficult to find 
+# the reference material for this specific use case
+# Basically you create a custom object in the structure of JSON 
+# and the limits of MessageCards then convert it to JSON to send it. 
+# -----------------------------------------------------------------------
+# Written on: 7/10/2023
+# Written By: Terry Sheridan 
+#------------------------------------------------------------------------
+
+$TeamsChannelURI = 'URL of Teams channel incomming webhook'
+
+$JSONBody = [PSCustomObject][Ordered]@{
+    "@type" = "MessageCard"
+    "@context" = "http://schema.org/extensions"
+    "summary" = "Message Card Summary"
+    "themeColor" = '0078d7'
+    "title" = "Message Card Title"
+    "sections" = @(
+        @{
+            "activityTitle" = "Activity Title"
+            "facts" = @(
+                @{
+                    "name" = "Fact 1:"
+                    "value" = "Fact 1 value"
+                }
+                @{
+                    "name" = "Fact 2:"
+                    "value" = "Fact 2 value"
+                }
+                @{
+                    "name" = "Fact 3:"
+                    "value" = "Fact 3 value"
+                }
+                @{
+                    "name" = "Fact 4:"
+                    "value" = "Fact 4 value"
+                }
+                @{
+                    "name" = "Fact 5:"
+                    "value" = "Fact 5 value"
+                }
+                @{
+                    "name" = "Fact 6:"
+                    "value" = "Fact 6 value"
+                }
+            ) 
+        }
+    )    
+}
+
+$TeamsMessageBody = ConvertTo-Json $JSONBody -Depth 20
+
+$parameters = @{
+    'URI' = $TeamsChannelURI
+    "Method" = 'Post'
+    "Body" = $TeamsMessageBody
+    "ContentType" = 'application/json'
+ }
+
+Invoke-RestMethod @parameters
+
+Write-Output "Teams Message Sent, Job Complete"
