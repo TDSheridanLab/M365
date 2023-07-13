@@ -14,7 +14,7 @@ $TargetFolder = "C:\Program Files\Microsoft\Exchange Server\V15\Logging\Diagnost
 $Extension = "*.blg"
 #----- define LastWriteTime parameter based on $Days ---#
 $LastWrite = $Now.AddDays(-$Days)
-$Files = Get-Childitem $TargetFolder -Include $Extension -Recurse | Where {$_.LastWriteTime -le "$LastWrite"}
+$Files = Get-Childitem $TargetFolder -Include $Extension -Recurse | Where-Object {$_.LastWriteTime -le "$LastWrite"}
 Remove-Item $Files
 
 #----- W3SVC1 Folder-----#
@@ -24,7 +24,7 @@ $TargetFolder1 = "C:\inetpub\logs\LogFiles\W3SVC1"
 $Extension1 = "*.log"
 #----- define LastWriteTime parameter based on $Days ---#
 $LastWrite = $Now.AddDays(-$Days)
-$Files1 = Get-Childitem $TargetFolder1 -Include $Extension1 -Recurse | Where {$_.LastWriteTime -le "$LastWrite"}
+$Files1 = Get-Childitem $TargetFolder1 -Include $Extension1 -Recurse | Where-Object {$_.LastWriteTime -le "$LastWrite"}
 Remove-Item $Files1
 
 #----- W3SVC2 Folder-----#
@@ -34,5 +34,5 @@ $TargetFolder2 = "C:\inetpub\logs\LogFiles\W3SVC2"
 $Extension2 = "*.log"
 #----- define LastWriteTime parameter based on $Days ---#
 $LastWrite = $Now.AddDays(-$Days)
-$Files2 = Get-Childitem $TargetFolder2 -Include $Extension2 -Recurse | Where {$_.LastWriteTime -le "$LastWrite"}
+$Files2 = Get-Childitem $TargetFolder2 -Include $Extension2 -Recurse | Where-Object {$_.LastWriteTime -le "$LastWrite"}
 Remove-Item $Files2
