@@ -1,0 +1,84 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Druva Group Processing",
+            "spacing": "Medium",
+            "horizontalAlignment": "Center",
+            "size": "ExtraLarge",
+            "weight": "Bolder",
+            "color": "Accent"
+        },
+        {
+            "type": "TextBlock",
+            "text": "_Revo Health & i-Health M365 Backup Solution_",
+            "separator": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Status",
+            "size":"large",
+            "weight": "bolder"
+        },
+        {
+            "type": "TextBlock",
+            "text": "@{body('Parse_JSON')?['title']}",
+            "weight": "Bolder",
+            "size": "medium",
+            "spacing": "None"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Stats",
+            "weight": "bolder",
+            "size": "large"
+        },
+        {
+            "separator": true,
+            "type":"FactSet",
+            "facts":[
+                {
+                    "title": "New Users:",
+                    "value": ""
+                },
+                {
+                    "title": "New Shared Resources:",
+                    "value": ""
+                },
+                {
+                    "title": "M365 Users:",
+                    "value": ""
+                },
+                {
+                    "title": "Shared & Resource Mailboxes:",
+                    "value": ""
+                },
+                {
+                    "title": "Shared Mailboxes:",
+                    "value": ""
+                },
+                {
+                    "title": "Resource Rooms:",
+                    "value": ""
+                },
+                {
+                    "title": "Bookings Mailboxes:",
+                    "value": ""
+                }
+            ]
+
+        },
+        {
+            "type": "TextBlock",
+            "text": "**Resources**"
+        },
+        {
+            "separator": true,
+            "type": "TextBlock",
+            "text": "[Click Here](https://dell-login.druva.com/login) To Review the Backups"
+		}
+    ]
+}
