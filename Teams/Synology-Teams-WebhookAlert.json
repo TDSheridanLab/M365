@@ -1,0 +1,43 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Synology NAS Alert",
+            "spacing": "Medium",
+            "horizontalAlignment": "Center",
+            "size": "ExtraLarge",
+            "weight": "Bolder",
+            "color": "Accent"
+        },
+        {
+            "type": "TextBlock",
+            "color": "attention",
+            "size" : "large",
+            "weight": "bolder",
+            "text": "Critical Alert!",
+            "separator": true
+        },
+		{
+            "type": "TextBlock",
+            "text": "**Details**"
+        },
+        {
+            "separator": true,
+            "type": "TextBlock",
+            "text": "@{body('Parse_JSON')?['text']}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "**Resources**"
+        },
+        {
+            "separator": true,
+            "type": "TextBlock",
+            "text": "[Click Here](https://synology.com) to View"
+		}
+    ]
+}
